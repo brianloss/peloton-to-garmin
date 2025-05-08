@@ -51,7 +51,8 @@ jobs:
             "StackedWorkouts": {
               "AutomaticallyStackWorkouts": false,
               "MaxAllowedGapSeconds": 300
-            }
+            },
+            "WorkoutTitleTemplate": "{{PelotonWorkoutTitle}} | {{PelotonInstructorName}}",
           },
           "Peloton": {
             "NumWorkoutsToDownload": ${{ github.event.inputs.workoutsToDownload || env.DEFAULT_WORKOUT_NUM }},
@@ -84,7 +85,7 @@ jobs:
         P2G_PELOTON__PASSWORD: ${{ secrets.P2G_PELOTON__PASSWORD }}
         P2G_GARMIN__EMAIL: ${{ secrets.P2G_GARMIN__EMAIL }}
         P2G_GARMIN__PASSWORD: ${{ secrets.P2G_GARMIN__PASSWORD }}
-        TZ: America/Chicago
+        TZ: America/Denver
 
     - name: ⤴ Upload output directory
       uses: actions/upload-artifact@v4
